@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<catalogue attribute="Technical Books">
+		<book>
+			<ISBN>978-1-118-60704-6</ISBN>
+			<author>
+				<first_name>Michael</first_name>
+				<last_name>Wessler</last_name>
+			</author>
+			<title>Big Data Analytics For Dummies®, Alteryx Special Edition</title>
+		</book>
+		<book>
+			<ISBN>978-1-78216-140-0</ISBN>
+			<author>
+				<first_name>Willi</first_name>
+				<last_name>Richert</last_name>
+			</author>
+			<author>
+				<first_name>Luis Pedro</first_name>
+				<last_name>Coelho</last_name>
+			</author>
+			<title>Building Machine Learning Systems with Python</title>
+		</book>
+	 </catalogue>
+	<catalogue attribute="Cook books"> 
+		<book>
+			<ISBN>978-3-458-17745-6</ISBN>
+			<author>
+				<first_name>Erwin</first_name> 
+				<last_name>Seitz</last_name>
+			</author>
+			<title>Natur Nahes Kochen</title>
+		</book>
+		<book>
+			<ISBN>978-3-86913-980-7</ISBN>
+			<author>
+				<first_name>Diana</first_name>
+				<last_name>Henry</last_name>
+			</author>
+			<title>Change your appetite</title>
+		</book>
+	</catalogue>
+</library>
