@@ -1,0 +1,63 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <head>
+        <title>Cars Luisa Timothy</title>
+    </head>
+    <body>
+	    <h1>Cars</h1>
+	        <button onclick="createCar">Create</button>
+	    <h2>All Cars</h2>
+	    <table border="3" cellpadding="5" cellspacing="0" align="center">
+	        <tr>
+            <th>Registration</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Make</th>
+        </tr>
+        <tr>
+                <td>191 MO 123</td>
+                <td>12 D 123</td>
+                <td>08 G 123</td>
+            </tr>
+            <tr>
+                <td>Ford</td>
+                <td>Fiat</td>
+                <td>Nissan</td>
+            </tr>
+            <tr>
+                <td>Mondeo</td>
+                <td>Punto</td>
+                <td>Almera</td>
+            </tr>
+            <tr>
+                <td>25,000</td>
+                <td>4,000</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td><button>Update</button></td>
+                <td><button>Update</button></td>
+                <td><button>Update</button></td>
+            </tr>
+            <tr>
+                <td><button>Delete</button></td>
+                <td><button>Delete</button></td>
+                <td><button>Delete</button></td>
+            </tr>
+        </table>
+        <form>
+            <h2><span>Create a</span><span>Update this</span>Car</h2>
+                Reg <input type="text"></input><br/>
+                Make <select name="Make"><br/>
+                    <option value="Ford">Ford</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Nissan">Nissan</option>
+                Model <input type="text"></input><br/>
+                Price <input type="text"></input><br/>
+                <span><button onclick="CreateCar">Create</button></span>
+                <span><button onclick="UpdateCar">Update</button></span>
+            </form>
+    </body>
+</html> 
