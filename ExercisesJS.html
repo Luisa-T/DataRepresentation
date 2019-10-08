@@ -1,0 +1,72 @@
+/--
+1. Write some html that has a hidden element. Done
+2. Write some JavaScript that outputs “Hello World” to the console. Done
+3. Make a webpage with an input and a button, when the user clicks the button then
+the contents of the input will display in another div. Done
+4. Create a book object as a variable with title, author and ISBN, and display it in the
+console.
+5. Make a webpage that has two <div>, only one should be visible at a time, each <div>
+will have a button that will make the other div visible (and hide itself). Done
+6. Make a web page that has a text box, when the content of the text area changes the
+page will display whether the value entered is greater or less than 10, or equal to 10.
+7. Make a web page that outputs 1 to 10 (or N) and Make a web page that outputs all
+the values of an array. Done stopped at 20 minutes
+8. Create a webpage with multiple inputs and a button, when the user hits the button
+read all the inputs, store the values into a class and output the class to the console.
+9. Write the code so that when the user clicks on the button in a row, the contents of
+the cells in that row are stored in an object and outputted to the console.
+10. Create a button that when it is clicked adds a row to the table (above) with data.
+<html>
+<head>
+    <title>JavaScript exercises Luisa Timothy</title>
+</head>
+<body>
+    <div style="display:block">Hello World
+    </div>
+    <div style="display:none">Bye World
+    </div>
+    <button onclick="myButton()">Click me</button>
+    <input type="text" value="enter text"><br/>
+    <div id="output">Your text will appear here</div>
+    <div id="book1" style="display:block">Photo Finish</div>
+    <div id="book2" style="display:block">Grave Mistake</div>
+    <button onclick="showBook1()">Show Book 1</button>
+    <button onclick="showBook2()">Show Book 2</button>
+    <input type="number" onchange="checkNumber(this)">
+    <div id="number"></div>
+    <script>
+        console.log("Hello World")
+        function helloWorld(message){
+            console.log("hello world")
+        helloWorld()
+        }
+        function myButton(){
+            var output=documentGetElementById("output").innerText=output
+        }
+        var book ={}
+        book.title = "Photo-Finish"
+        book.author = "Ngaio Marsh"
+        book.ISBN = "0006170714"
+        console.log("the book is" + JSON.stringify(book))
+        function showBook1(){
+            document.getElementById("book1").style.display="none";
+            document.getElementById("book2").style.display="block";
+        } 
+        function showBook2(){
+            document.getElementById("book1").style.display="block";
+            document.getElementById("book2").style.display="none";
+        } 
+        function checkNumber(inputElement){
+            var value = inputElement(value)
+            if(value < 10){
+                documentGetElementById("number").innerText = "too low"
+            else if(value > 10){
+                documentGetElementById("number").innerText = "too high"
+            }
+            else:
+                documentGetElementById("number").innerText = "You got it"
+            }
+        }
+    </script>
+</body>
+</html>
