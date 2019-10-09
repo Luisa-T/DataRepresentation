@@ -11,10 +11,10 @@ will have a button that will make the other div visible (and hide itself). Done
 page will display whether the value entered is greater or less than 10, or equal to 10.
 7. Make a web page that outputs 1 to 10 (or N) and Make a web page that outputs all
 the values of an array. Done stopped at 20 minutes
-8. Create a webpage with multiple inputs and a button, when the user hits the button
-read all the inputs, store the values into a class and output the class to the console.
+8. Create a webpage with multiple inputs and a button, when the user hits the button 
+read all the inputs, store the values into a class and output the class to the console. Done
 9. Write the code so that when the user clicks on the button in a row, the contents of
-the cells in that row are stored in an object and outputted to the console.
+the cells in that row are stored in an object and outputted to the console. Done
 10. Create a button that when it is clicked adds a row to the table (above) with data.
 <html>
 <head>
@@ -34,6 +34,18 @@ the cells in that row are stored in an object and outputted to the console.
     <button onclick="showBook2()">Show Book 2</button>
     <input type="number" onchange="checkNumber(this)">
     <div id="number"></div>
+    First name <input type="text" name='firstName'><br/>
+    Last name <input type="text" name='lastName'><br/>
+    Age <input type="number" name='Age'><br/>
+    <button onclick="doForm()">go</button>
+    <table id = 'mainTable'>
+        <tr>
+            <td>data1</td>
+            <td>data2</td>
+            <td><button onclick="doRow(this)">output</button></td>
+        </tr>
+    </table>
+    <button onclick="creatRow()">Add to table</button>
     <script>
         console.log("Hello World")
         function helloWorld(message){
@@ -67,6 +79,40 @@ the cells in that row are stored in an object and outputted to the console.
                 documentGetElementById("number").innerText = "You got it"
             }
         }
+        for (var i = 0; i < 10; i++){
+            console.log(i)
+        }
+        var names=['Harry', 'Ron', 'Lily', 'Mione']
+        var output=''
+        for(name of names){
+            output += name + <br/>
+            document.getElementById("output").innerHTML = output
+        }
+        function doForm(){
+            var employee = {}
+            var form = document.GetElementById("myForm")
+            employee.firstName = form.querySelector('input[name="firstName"]').value
+            employee.lastName = form.querySelector('input[name="lastName"]').value
+            employee.Age = form.querySelector('input[name="Age"]').value
+            console.log("form data " + JSON.stringify(employee))
+        }
+        function doRow(buttonElement){
+            var rowElement = buttonElement.parentNode.parentNode
+            var data = {}
+            data.cell1 = rowElement.cells[0].firstChild.textContent;
+            data.cell1 = rowElement.cells[1].firstChild.textContent;
+            console.log(JSON.stringify(data))
+        }
+        function createRow(){
+            var tableElement = document.getElementById('mainTable')
+            var data = (cell1:'cat', cell1:'dog', cell3:'pony') } 
+            var rowElement = tableElement.insertRow(-1)
+            var cellElement = rowElement.insertCell(0)
+            cellElement.innerHTML = data.cell1;
+            var cellElement = rowElement.insertCell(1)
+            cellElement.innerHTML = data.cell2;  
+            var cellElement = rowElement.insertCell(2)
+            cellElement.innerHTML = data.cell3;        }
     </script>
 </body>
 </html>
