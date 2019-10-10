@@ -41,7 +41,8 @@
             <td><button id="doDeleteButton">Delete</button></td>
         </tr>
     </table>
-        <form>
+    <div id="createUpdateForm" style="display: none">
+        <form hidden>
             <h2><span id="createLabel">Create a</span><span id="updateLabel">Update this</span>Car</h2>
                 Reg <input type="text"></input><br/>
                 Make <select name="Make"><br/>
@@ -56,113 +57,115 @@
                 <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
                 <div id="createUpdateForm" style="none"></div>
                 <button id="showCreateButton" onclick="showCreate()"></button>
-            </form>
-            <script>
-                function showCreate(){
-                    document.getElementById('showCreateButton').style.display="none"
-                    document.getElementById('carTable').style.display="none"
-                    document.getElementById('createUpdateForm').style.display="block"
-                    document.getElementById('createLabel').style.display="inline"
-                    document.getElementById('updateLabel').style.display="none"
-                    document.getElementById('doCreateButton').style.display="block"
-                    document.getElementById('doUpdateButton').style.display="none"
-                }
-                function showUpdate(){
-                    document.getElementById('showUpdateButton').style.display="none"
-                    document.getElementById('carTable').style.display="none"
-                    document.getElementById('createUpdateForm').style.display="block"
-                }
-                function doCreate(){
-                    showViewAll()
-                }
-                function clearForm(){
-                    var form = document.getElementById('createUpdateForm')
-                    form.querySelector('input[name="reg"]').disabled = false
-                    form.querySelector('input[name="reg"]').value = ''
-                    form.querySelector('input[name="make"]').value = ''
-                    form.querySelector('input[name="model"]').value = ''
-                    form.querySelector('input[name="price"]').value = ''
-                }
-                function doCreate(){
-                    //code
-                    clearForm()
-                    showViewAll()
-                    var car = {}
-                    car.reg = form.querySelector('input[name="reg"]').value = ''
-                    car.make = form.querySelector('input[name="make"]').value = ''
-                    car.model = form.querySelector('input[name="model"]').value = ''
-                    car.price = form.querySelector('input[name="price"]').value = ''
-                }
-                function addCarToTable(car){
-                    rowElement.setAttribute('id',car.reg)
-                    var tableElement = document.getElementById('carTable')
-                    var rowElement = tableElement.insertRow(-1)
-                    // attribute
-                    var cell1 = rowElement.insertCell(0);
-                    cell1.innerHTML = car.reg
-                    var cell1 = rowElement.insertCell(1);
-                    cell1.innerHTML = car.make                    
-                    var cell1 = rowElement.insertCell(2);
-                    cell1.innerHTML = car.model
-                    var cell1 = rowElement.insertCell(3);
-                    cell1.innerHTML = car.price
-                    var cell1 = rowElement.insertCell(4);
-                    cell1.innerHTML = '<button onclick =  "showUpdate(this)">Update</button>'
-                    var cell1 = rowElement.insertCell(5);
-                    cell1.innerHTML = '<button onclick =  "doDelete(this)">Delete</button>'
-                    function getCarFromRow(rowElement){
-                        var car = {}
-                        car.reg = rowElement.cells[0].firstChild.textContent
-                        car.make = rowElement.cells[1].firstChild.textContent
-                        car.model = rowElement.cells[2].firstChild.textContent
-                        car.price = rowElement.cells[3].firstChild.textContent
-                        return car
-                }
-                function populateFormWithCar(car){
-                    var form = document.getElementById('createUpdateForm')
-                    form.querySelector('input[name="reg"]').disabled = true
+        </form>
+    </div>
+    <script>
+        function showCreate(){
+        document.getElementById('showCreateButton').style.display="none"
+        document.getElementById('carTable').style.display="none"
+        document.getElementById('createUpdateForm').style.display="block"
+        document.getElementById('createLabel').style.display="inline"
+        document.getElementById('updateLabel').style.display="none"
+        document.getElementById('doCreateButton').style.display="block"
+        document.getElementById('doUpdateButton').style.display="none"
+        }
+        function showUpdate(){
+        document.getElementById('showUpdateButton').style.display="none"
+        document.getElementById('carTable').style.display="none"
+        document.getElementById('createUpdateForm').style.display="block"
+        }
+        function doCreate(){
+            showViewAll()
+        }
+        function clearForm(){
+            var form = document.getElementById('createUpdateForm')
+            form.querySelector('input[name="reg"]').disabled = false
+            form.querySelector('input[name="reg"]').value = ''
+            form.querySelector('input[name="make"]').value = ''
+            form.querySelector('input[name="model"]').value = ''
+            form.querySelector('input[name="price"]').value = ''
+        }
+        function doCreate(){
+            //code
+            clearForm()
+            showViewAll()
+            var car = {}
+            car.reg = form.querySelector('input[name="reg"]').value = ''
+            car.make = form.querySelector('input[name="make"]').value = ''
+            car.model = form.querySelector('input[name="model"]').value = ''
+            car.price = form.querySelector('input[name="price"]').value = ''
+        }
+        function addCarToTable(car){
+            rowElement.setAttribute('id',car.reg)
+            var tableElement = document.getElementById('carTable')
+            var rowElement = tableElement.insertRow(-1)
+            // attribute
+            var cell1 = rowElement.insertCell(0);
+            cell1.innerHTML = car.reg
+            var cell1 = rowElement.insertCell(1);
+            cell1.innerHTML = car.make                    
+            var cell1 = rowElement.insertCell(2);
+            cell1.innerHTML = car.model
+            var cell1 = rowElement.insertCell(3);
+            cell1.innerHTML = car.price
+            var cell1 = rowElement.insertCell(4);
+            cell1.innerHTML = '<button onclick =  "showUpdate(this)">Update</button>'
+            var cell1 = rowElement.insertCell(5);
+            cell1.innerHTML = '<button onclick =  "doDelete(this)">Delete</button>'
+        }
+        function getCarFromRow(rowElement){
+            var car = {}
+            car.reg = rowElement.cells[0].firstChild.textContent
+            car.make = rowElement.cells[1].firstChild.textContent
+            car.model = rowElement.cells[2].firstChild.textContent
+            car.price = rowElement.cells[3].firstChild.textContent
+            return car
+        }
+        function populateFormWithCar(car){
+            var form = document.getElementById('createUpdateForm')
+            form.querySelector('input[name="reg"]').disabled = true
 
-                    form.querySelector('input[name="reg"').value = car.reg
-                    form.querySelector('input[name="make"]').value = car.make
-                    form.querySelector('input[name="model"]').value = car.model
-                    form.querySelector('input[name="price"]').value = car.price
-                }
-                function showUpdate(buttonElement){
-                    //code
-                    var rowElement = buttonElement.parentNode.parentNode
+            form.querySelector('input[name="reg"').value = car.reg
+            form.querySelector('input[name="make"]').value = car.make
+            form.querySelector('input[name="model"]').value = car.model
+            form.querySelector('input[name="price"]').value = car.price
+        }
+        function showUpdate(buttonElement){
+            //code
+            var rowElement = buttonElement.parentNode.parentNode
 
-                    var car = getCarFromRow(rowElement)
-                    populateFormWithCar(car)
-                }
-                function getCarFromForm(){
-                    var form = getElementById('createUpdateForm')
-                    var car{}
-                    car.reg = form.querySelector('input[name = "reg"]').value
-                    car.make = form.querySelector('input[name = "make"]').value
-                    car.model = form.querySelector('input[name = "model"]').value
-                    car.price = form.querySelector('input[name = "price"]').value
-                    console.log(JSON.stringify(car))
-                    return car
-                }
-                function setCarInRow(rowElement, car){
-                    car.reg = rowElement.cells[0].firstChild.textContent = car.reg
-                    car.make = rowElement.cells[1].firstChild.textContent = car.make
-                    car.model = rowElement.cells[2].firstChild.textContent = car.model
-                    car.price = rowElement.cells[3].firstChild.textContent = car.price
-                }
-                function doUpdate(){
-                    var car = getCarFromForm();
-                    var rowElement = document.getElementById(car.reg)
-                    setCarInRow(rowElement, car)
+            var car = getCarFromRow(rowElement)
+            populateFormWithCar(car)
+        }
+        function getCarFromForm(){
+            var form = getElementById('createUpdateForm')
+            var car{}
+            car.reg = form.querySelector('input[name = "reg"]').value
+            car.make = form.querySelector('input[name = "make"]').value
+            car.model = form.querySelector('input[name = "model"]').value
+            car.price = form.querySelector('input[name = "price"]').value
+            console.log(JSON.stringify(car))
+            return car
+        }
+        function setCarInRow(rowElement, car){
+            car.reg = rowElement.cells[0].firstChild.textContent = car.reg
+            car.make = rowElement.cells[1].firstChild.textContent = car.make
+            car.model = rowElement.cells[2].firstChild.textContent = car.model
+            car.price = rowElement.cells[3].firstChild.textContent = car.price
+        }
+        function doUpdate(){
+            var car = getCarFromForm();
+            var rowElement = document.getElementById(car.reg)
+            setCarInRow(rowElement, car)
 
-                    clearForm()
-                    showViewAll()
-                }
-                function doDelete(r){
-                    var tableElement = document.getElementById('carTable')
-                    var index = r.parentNode.parentNode.rowIndex;
-                    tableElement.deleteRow(index);
-                }
-            </script>
+            clearForm()
+            showViewAll()
+        }
+        function doDelete(r){
+            var tableElement = document.getElementById('carTable')
+            var index = r.parentNode.parentNode.rowIndex;
+            tableElement.deleteRow(index);
+        }
+        </script>
     </body>
 </html> 
