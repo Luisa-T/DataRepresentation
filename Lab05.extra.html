@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <title>Exercise 3 Luisa Timothy</title>
+        <title>Exercise Extra Luisa Timothy</title>
     </head>
     <body>
         <button onclick="readJSON()">go</button>
@@ -14,9 +14,8 @@
                 "data":"",
                 "dataType": "JSON",
                 "success":function(result){
-                    var rate = result.bpi.EUR.rate;
-                    document.getElementById("output").innerText = rate;
-                    var rateUS = result.bpi.USD.rate;
+                    var rate = result.USD;
+                    console.log(rate);
                     document.getElementById("output").innerText = rate;
                 },
                 "error":function(xhr,status,error){

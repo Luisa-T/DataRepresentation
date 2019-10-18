@@ -4,13 +4,16 @@
     </head>
     <body>
         <button onclick="displayJSON()">go</button>
-    </body>
     <script>
+        var JsonString = { "employees":  "employees": [{"firstName": "John", "lastName": "Doe"},{
+"firstName": "Anna","lastName": "Smith"},{"firstName": "Peter",
+"lastName": "Jones"}]}
         function displayJSON(){
-        var obj = JSON.parse('{"employees": [{"firstName": "John", "lastName": "Doe"},{ "firstName": "Anna","lastName": "Smith"},{"firstName": "Peter","lastName": "Jones"}]}')
-        for (employee of obj.employees){
-        console.log(employee.firstName)
-        }
+
+            var obj = JSON.parse(JsonString)
+            for (employee of obj.employees){
+            console.log(employee.firstName)
+            }
         }
         </script>
     </body>
