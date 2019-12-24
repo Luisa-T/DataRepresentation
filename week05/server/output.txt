@@ -1,0 +1,179 @@
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i http://localhost:5000/cars                     
+HTTP/1.0 200 OK                                          
+Content-Type: application/json                           
+Content-Length: 349                                      
+Server: Werkzeug/0.14.1 Python/3.6.5                     
+Date: Thu, 19 Dec 2019 09:21:31 GMT                      
+                                                         
+{                                                        
+  "cars": [                                              
+    {                                                    
+      "make": "Ford",                                    
+      "model": "Modeo",                                  
+      "price": 18000,                                    
+      "reg": "181 G 1234"                                
+    },                                                   
+    {                                                    
+      "make": "Nissan",                                  
+      "model": "Almera",                                 
+      "price": 8000,                                     
+      "reg": "11 MO 1234"                                
+    },                                                   
+    {                                                    
+      "make": "Nissan",                                  
+      "model": "Almera",                                 
+      "price": 8000,                                     
+      "reg": "test"                                      
+    }                                                    
+  ]                                                      
+}                                                        
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i http://localhost:5000/cars/test                
+HTTP/1.0 200 OK                                          
+Content-Type: application/json                           
+Content-Length: 104                                      
+Server: Werkzeug/0.14.1 Python/3.6.5                     
+Date: Thu, 19 Dec 2019 09:21:48 GMT                      
+                                                         
+{                                                        
+  "car": {                                               
+    "make": "Nissan",                                    
+    "model": "Almera",                                   
+    "price": 8000,                                       
+    "reg": "test"                                        
+  }                                                      
+}                                                        
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i -H "Content-Type:application/json" -X POST d '{
+"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3
+000}' http://localhost:50 00/cars                        
+curl: (6) Could not resolve host: d                      
+                                                         
+[1/4]: 'reg:12 D 1234' --> <stdout>                      
+--_curl_--'reg:12 D 1234'                                
+curl: (3) Port number ended with ' '                     
+                                                         
+[2/4]: 'make:Fiat' --> <stdout>                          
+--_curl_--'make:Fiat'                                    
+curl: (3) Port number ended with 'F'                     
+                                                         
+[3/4]: 'model:Punto' --> <stdout>                        
+--_curl_--'model:Punto'                                  
+curl: (3) Port number ended with 'P'                     
+                                                         
+[4/4]: 'price:3000' --> <stdout>                         
+--_curl_--'price:3000'                                   
+curl: (3) Port number ended with '''                     
+curl: (7) Failed to connect to localhost port 50: Connect
+ion refused                                              
+curl: (6) Could not resolve host: 00                     
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i -H "Content-Type:application/json" -X POST d '{
+"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3
+000}' http://localhost:5000/cars                         
+curl: (6) Could not resolve host: d                      
+                                                         
+[1/4]: 'reg:12 D 1234' --> <stdout>                      
+--_curl_--'reg:12 D 1234'                                
+curl: (3) Port number ended with ' '                     
+                                                         
+[2/4]: 'make:Fiat' --> <stdout>                          
+--_curl_--'make:Fiat'                                    
+curl: (3) Port number ended with 'F'                     
+                                                         
+[3/4]: 'model:Punto' --> <stdout>                        
+--_curl_--'model:Punto'                                  
+curl: (3) Port number ended with 'P'                     
+                                                         
+[4/4]: 'price:3000' --> <stdout>                         
+--_curl_--'price:3000'                                   
+curl: (3) Port number ended with '''                     
+HTTP/1.0 400 BAD REQUEST                                 
+Content-Type: application/json                           
+Content-Length: 29                                       
+Server: Werkzeug/0.14.1 Python/3.6.5                     
+Date: Thu, 19 Dec 2019 09:22:24 GMT                      
+                                                         
+{                                                        
+  "error": "Bad Request"                                 
+}                                                        
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i -H "Content-Type:application/json" -X POST d '{
+"\reg\":"12 D 1234","make":"Fiat","model":"Punto","price"
+:3000}' http://localhost:5000/cars                       
+curl: (6) Could not resolve host: d                      
+curl: (3) [globbing] unmatched brace in column 2         
+curl: (6) Could not resolve host: D                      
+curl: (3) [globbing] unmatched close brace/bracket in col
+umn 38                                                   
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i -H "Content-Type:application/json" -X PUT d '{"
+make":"Fiesta"}' http://localhost:5000/cars/181%20G%20123
+4                                                        
+curl: (6) Could not resolve host: d                      
+curl: (3) Port number ended with 'F'                     
+HTTP/1.0 400 BAD REQUEST                                 
+Content-Type: application/json                           
+Content-Length: 29                                       
+Server: Werkzeug/0.14.1 Python/3.6.5                     
+Date: Thu, 19 Dec 2019 09:23:34 GMT                      
+                                                         
+{                                                        
+  "error": "Bad Request"                                 
+}                                                        
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (
+master -> origin)                                        
+λ curl -i -X DELETE http://localhost:5000/cars/181%20G%20
+1234                                                     
+HTTP/1.0 200 OK                                          
+Content-Type: application/json                           
+Content-Length: 21                                       
+Server: Werkzeug/0.14.1 Python/3.6.5                     
+Date: Thu, 19 Dec 2019 09:23:53 GMT                      
+                                                         
+{                                                        
+  "result": true                                         
+}                                                        
+                                                         
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (master -> origin)
+λ curl -i -H "Content-Type:application/json" -X POST d '{\"reg\":\"12 D 1234\",\"make\":\"Fiat\",\"model\":\"Punto\",\"price\":3000}' http://localhost:5000/cars
+curl: (6) Could not resolve host: d
+curl: (3) [globbing] unmatched brace in column 2
+curl: (6) Could not resolve host: D
+curl: (3) [globbing] unmatched close brace/bracket in column 49
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 29
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Thu, 19 Dec 2019 09:28:36 GMT
+
+{
+  "error": "Bad Request"
+}
+
+C:\Users\luisa\Desktop\dataRepresentation\week05\server (master -> origin)
+λ curl -i -H "Content-Type:application/json" -X PUT d '{\"make\":\"Fiesta\"}' http://localhost:5000/cars/181%20G%201234
+curl: (6) Could not resolve host: d
+curl: (3) Port number ended with '"'
+HTTP/1.0 404 NOT FOUND
+Content-Type: application/json
+Content-Length: 27
+Server: Werkzeug/0.14.1 Python/3.6.5
+Date: Thu, 19 Dec 2019 09:29:17 GMT
+
+{
+  "error": "Not found"
+}

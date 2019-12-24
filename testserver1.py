@@ -1,23 +1,24 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <title>Exercise 3 Luisa Timothy</title>
+        <title>
+            Test simple server
+        </title>
     </head>
     <body>
-        <button onclick="readJSON()">go</button>
+        <button onclick="readServer()">go</button>
+        <div id="output"></div>
     </body>
     <script>
-        function readJSON(){
+        function readServer(){
             $.ajax({
-                "url": "https://api.coindesk.com/v1/bpi/currentprice.json ",
+                "url": "http://127.0.0.1:5000/",
                 "method":"GET",
                 "data":"",
-                "dataType": "JSON",
+                "dataType": "HTML",
                 "success":function(result){
-                    var rate = result.bpi.EUR.rate;
-                    document.getElementById("output").innerText = rate;
-                    var rateUS = result.bpi.USD.rate;
-                    document.getElementById("output").innerText = rate;
+                    console.log(result);
+                    document.getElementById("output").innerHTML = result;
                 },
                 "error":function(xhr,status,error){
                     console.log("error: "+status+" msg:"+error);
